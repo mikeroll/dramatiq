@@ -15,6 +15,16 @@
 -- You should have received a copy of the GNU Lesser General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+-- maxstack(
+--   keys=[namespace]
+-- )
+--
+-- $namespace
+--   The prefix dramatiq will normally use for its keys. 
+--   It is not used in this for this script however; it is only required so that
+--   it can run in Redis deployments that don't support unparameterized scripts.
+
+
 local function unpack_with_size(n)
     local items = {}
     for i = 0, n do

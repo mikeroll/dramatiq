@@ -259,7 +259,7 @@ class RedisBroker(Broker):
         if cls._max_unpack_size_val is None:
             with cls._max_unpack_size_mut:
                 if cls._max_unpack_size_val is None:
-                    cls._max_unpack_size_val = DEFAULT_LUA_MAX_STACK or self.scripts["maxstack"]()
+                    cls._max_unpack_size_val = DEFAULT_LUA_MAX_STACK or self.scripts["maxstack"](keys=[self.namespace])
                     # We only want to use half of the max LUA stack to unpack values to avoid having
                     # problems with multiple workers + great number of messages
                     # See https://github.com/Bogdanp/dramatiq/issues/433
